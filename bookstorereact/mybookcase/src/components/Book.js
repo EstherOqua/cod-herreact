@@ -11,12 +11,12 @@ const Book = (props) => {
 
  return ( 
  <div>
- <h2>{title}</h2>
-  <p>{authors ? authors.join(', '): "No Authors Listed"}</p>
- <p>{listPrice && listPrice.amount}</p>
- <p>{description}</p>
+ <h2 className ="title">{title}</h2>
+  <p className="authors">{authors ? authors.join(', '): "No Authors Listed"}</p>
+ <p className="price">{listPrice && listPrice.amount}</p>
+ <p className="description">{description}</p>
  <img src = {smallThumbnail} />
- <button onClick={() => props.addBook(title, id)}>Add+</button> 
+ <button onClick={() => props.addBook(title, id)} className="coral-button">Add+</button> 
  </div>
  );
 }
