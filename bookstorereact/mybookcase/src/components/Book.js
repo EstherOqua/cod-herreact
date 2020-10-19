@@ -8,18 +8,15 @@ const Book = (props) => {
         saleInfo: {listPrice}
     } = props.book;
 
-    function addBook (title) {
-        console.log(`The book ${title} was clicked`)
-    }
 
  return ( 
  <div>
  <h2>{title}</h2>
- <p>{authors ? authors.join(', '): "No Authors Listed"}</p>
+  <p>{authors ? authors.join(', '): "No Authors Listed"}</p>
  <p>{listPrice && listPrice.amount}</p>
  <p>{description}</p>
  <img src = {smallThumbnail} />
- <button onClick={() => addBook(title)}>Add+</button>
+ <button onClick={() => props.addBook(title, id)}>Add+</button> 
  </div>
  );
 }
