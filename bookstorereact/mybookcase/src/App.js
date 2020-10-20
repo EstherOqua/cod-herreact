@@ -7,15 +7,21 @@ import About from './pages/About';
 import data from './models/books.json';
 import './App.css';
 
-
-const App = (props) => {
+const App = () => {
   const [books, setBooks] = useState(data);
+  const [ keyword, setKeyword ] = useState ('');
 
   function addBook (title, id) {
-    console.log(`The book ${title} was clicked`);
-
     const newBookList = books.filter(book => book.id !== id);
     setBooks(newBookList);
+    console.log(`The book ${title} was clicked`)
+  }
+
+  async function findBooks (term) {
+    const results = await fetch (
+      `https://www.googleapis.com/books/v1/volumes?q=${term}&filter=paid-ebooks&print-type=books&projection=lite`
+      ).then(res => res.json());
+    setBooks(results.items);
   }
 
   return (
@@ -23,8 +29,8 @@ const App = (props) => {
         <Route exact path="/" render={() => (
           <React.Fragment>
             <Header /> 
-            <Search />
-            <BookList books={books} addBook={addBook}/>
+            <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
+            <BookList books={books} addBook={addBook} />
           </React.Fragment>
          )} />
 

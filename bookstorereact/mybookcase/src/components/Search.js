@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 
-function Search () {
-    const [ keyword, setKeyword ] = useState ('');
+function Search (props) {
+    
+
+    function handleSubmit (event) {
+        event.preventDefault();
+        props.findBooks(props.keyword);
+    }
     return (
-        <form>
-            <input type="text" value={keyword} onChange ={(event) => setKeyword(event.target.value)} />
+        <form className="search-form" onSubmit={handleSubmit}>
+            <input type="text" value={props.keyword} onChange ={(event) => props.setKeyword(event.target.value)} />
             <button>Search</button>
-            {keyword}
         </form>
     );
 }
 
-export default Search;
+export default Search; 

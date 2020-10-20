@@ -11,12 +11,12 @@ const Book = (props) => {
 
  return ( 
  <div>
- <h2 className ="title">{title}</h2>
-  <p className="authors">{authors ? authors.join(', '): "No Authors Listed"}</p>
- <p className="price">{listPrice && listPrice.amount}</p>
- <p className="description">{description}</p>
- <img src = {smallThumbnail} />
- <button onClick={() => props.addBook(title, id)} className="coral-button">Add+</button> 
+    <img src = {smallThumbnail} />
+    <h2 className ="title">{title}</h2>
+    <p className="authors">{authors ? authors.join(', '): "No Authors Listed"}</p>
+    <p className="price">{listPrice && listPrice.amount}</p>
+    <p className="description">{description}</p>
+    <button onClick={() => props.addBook(title, id)} className="coral-button">Add+</button> 
  </div>
  );
 }
