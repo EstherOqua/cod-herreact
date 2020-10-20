@@ -5,7 +5,9 @@ import BookList from './components/BookList';
 import Search from "./components/Search";
 import About from './pages/About';
 import data from './models/books.json';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 
 
 const App = () => {
