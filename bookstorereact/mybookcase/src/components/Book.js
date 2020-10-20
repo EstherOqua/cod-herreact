@@ -10,8 +10,8 @@ const Book = (props) => {
 
 
  return ( 
- <div>
-    <img src = {smallThumbnail} />
+ <div className="book">
+    <img src = {smallThumbnail} alt={title} />
     <h2 className ="title">{title}</h2>
     <p className="authors">{authors ? authors.join(', '): "No Authors Listed"}</p>
     <p className="price">{listPrice && listPrice.amount}</p>
