@@ -13,11 +13,20 @@ import './App.css';
 const App = () => {
   const [books, setBooks] = useState(data);
   const [ keyword, setKeyword ] = useState ('');
+  const [bookCase, setBookCase] = useState([]);
 
   function addBook (title, id) {
     const newBookList = books.filter(book => book.id !== id);
+    const chosenBook = books.filter(book => book.id === id);
+    
     setBooks(newBookList);
+    setBookCase([...bookCase, ...chosenBook]);
     console.log(`The book ${title} was clicked`)
+  }
+
+  function removeBook (id){
+    const newBookcaseList = bookCase.filter(book => book.id !== id);
+    setBookCase(newBookcaseList);
   }
 
   async function findBooks (term) {
@@ -41,7 +50,7 @@ const App = () => {
          <Route exact path="/bookcase" render={() => (
           <React.Fragment>
             <Header />
-            <p>Next page</p>
+            <BookList books={bookCase} removeBook={removeBook}/>
           </React.Fragment>
          )} />
 

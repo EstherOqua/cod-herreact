@@ -6,7 +6,7 @@ const Book = (props) => {
         id, 
         volumeInfo: {title, authors, description, imageLinks: {smallThumbnail}}, 
         saleInfo: {listPrice}
-    } = props.book;
+    } = props.book;   
 
 
  return ( 
@@ -16,7 +16,22 @@ const Book = (props) => {
     <p className="authors">{authors ? authors.join(', '): "No Authors Listed"}</p>
     <p className="price">{listPrice && listPrice.amount}</p>
     <p className="description">{description}</p>
-    <button onClick={() => props.addBook(title, id)} className="coral-button">Add+</button> 
+    {props.addBook && (
+        <button 
+         onClick={() => props.addBook(title, id)} 
+         className="coral-button"
+        >
+             Add +
+         </button> 
+    )}
+    {props.removeBook && (
+        <button 
+            onClick={() => props.removeBook(id)} 
+            className="coral-button"
+            >
+            Remove 
+        </button> 
+    )}
  </div>
  );
 }
