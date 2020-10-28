@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <React.Fragment>
-            <h1 className="h1">My Bookcase</h1>
+            <div className="appheader"> 
+            <h1 className="h1">My Bookcase.</h1>
+            </div>
             <Link to="/" className="button">Home</Link>
-            <Link to ="/bookcase" className="button">Book Case</Link>
+            <Link to ="/bookcase" className="button">Bookcase</Link>
             <Link to ="/about" className="button">About</Link>
+            <Link to ="/contact" className="button">Contact</Link>
         </React.Fragment>
     );
 };

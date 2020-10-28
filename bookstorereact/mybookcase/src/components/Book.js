@@ -10,16 +10,18 @@ const Book = (props) => {
 
 
  return ( 
- <div className="book">
+     <div className="book">
+ <div>
     <img src = {smallThumbnail} alt={title} />
-    <h2 className ="title">{title}</h2>
-    <p className="authors">{authors ? authors.join(', '): "No Authors Listed"}</p>
-    <p className="price">{listPrice && listPrice.amount}</p>
-    <p className="description">{description}</p>
+        <h2 className ="title">{title}</h2>
+        <p className="author">{authors ? authors.join(', '): "No Authors Listed"}</p>
+        <p className="price">{listPrice && listPrice.amount}</p>
+        <p  className="description">{description}</p>
+    </div> 
     {props.addBook && (
         <button 
          onClick={() => props.addBook(title, id)} 
-         className="coral-button"
+         className="addbutton"
         >
              Add +
          </button> 

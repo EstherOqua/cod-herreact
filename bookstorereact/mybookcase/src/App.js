@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
-
 const App = () => {
   const [books, setBooks] = useState(data);
   const [ keyword, setKeyword ] = useState ('');
